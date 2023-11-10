@@ -20,8 +20,7 @@ const CheckoutForm = ({dates, guestEmail, formattedDates}) => {
     useEffect(() => {
         if (!stripe) {
           return;
-        }
-    
+        } 
         const clientSecret = new URLSearchParams(window.location.search).get(
           "payment_intent_client_secret"
         );
@@ -88,8 +87,7 @@ const CheckoutForm = ({dates, guestEmail, formattedDates}) => {
               {e.target}
           }, (error) => {
               console.log(error.text);
-          });
-    
+          }); 
           e.target.reset()
       };
 
@@ -100,20 +98,20 @@ const CheckoutForm = ({dates, guestEmail, formattedDates}) => {
    
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
-    <LinkAuthenticationElement
-      id="link-authentication-element"
-      onChange={(e) => setEmail(e.target.value)}
-    />
-    <PaymentElement id="payment-element" options={paymentElementOptions} />
-    <button disabled={isLoading || !stripe || !elements} id="submit">
-      <span id="button-text">
-        <input name="dates" value={formattedDates} type="hidden"/>
-        <input name="email" value={guestEmail} type="hidden"/>
-        {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
-      </span>
-    </button>
-    {/* Show any error or success messages */}
-    {message && <div id="payment-message">{message}</div>}
+      <LinkAuthenticationElement
+        id="link-authentication-element"
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <PaymentElement id="payment-element" options={paymentElementOptions} />
+        <button disabled={isLoading || !stripe || !elements} id="submit">
+          <span id="button-text">
+            <input name="dates" value={formattedDates} type="hidden"/>
+            <input name="email" value={guestEmail} type="hidden"/>
+            {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+          </span>
+        </button>
+      {/* Show any error or success messages */}
+      {message && <div id="payment-message">{message}</div>}
   </form>
   )
 }

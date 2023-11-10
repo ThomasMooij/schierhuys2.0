@@ -1,6 +1,5 @@
 import styled from "styled-components"
 
-
 const Main = styled.main`
     display: flex;
     flex-direction: column;
@@ -18,11 +17,8 @@ const Nav = styled.nav`
     background-color: beige;
     width: 100%;
     min-height: 85px;
-    font-size: 25px;
-   
+    font-size: 25px; 
 `
-
-
 const InfoComponent = () => {
   return (
     <Main>

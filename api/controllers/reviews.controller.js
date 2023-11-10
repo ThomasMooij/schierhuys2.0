@@ -27,8 +27,8 @@ export const getReviews = async (req,res,next)=>{
     }
     try{
         const reviews = await Review.find(filter).sort({createdAt: -1}).select('-updatedAt')
-
         res.status(200).send(reviews)
+
     }catch(err){
         next(err)
     }
@@ -52,6 +52,6 @@ export const deleteReview = async (req,res,next)=>{
         res.status(200).send(review)
 
     }catch(err){
-        
+        next(err)
     }
 }

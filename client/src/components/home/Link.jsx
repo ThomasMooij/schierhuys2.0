@@ -3,7 +3,8 @@ import styled from "styled-components"
 import {Link} from 'react-scroll';
 
 const Btn = styled(Link)`
-   margin-left: 15px;
+
+    margin-left: 15px;
     border: none;
     padding:3px 35px;
     cursor: pointer;
@@ -14,7 +15,7 @@ const Btn = styled(Link)`
     font-weight: 700;
     background-color: transparent;
     border-spacing: 13px;
- 
+    
     @media (max-width: 1380px){
            display: none;
         }

@@ -21,18 +21,6 @@ const Left = styled.section`
     display: flex;
     flex-direction: column;
 `
-const Name = styled.article`
-    
-`
-const Address = styled.article`
-    
-`
-const Email = styled.article`
-    
-`
-const Phone = styled.article`
-    
-`
 const Right = styled.section`
     display: flex;
     flex-direction: column;
@@ -47,10 +35,10 @@ const Footer = () => {
     <Main>
       <Wrapper>
         <Left>
-            <Name>Schierhuys bv</Name>
-            <Address>Berkenlaan 10</Address>
-            <Email>Gertshuis@ossosvangert.nl</Email>
-            <Phone>060606060606</Phone>
+            <article>Schierhuys bv</article>
+            <article>Berkenlaan 10</article>
+            <article>Gertshuis@ossosvangert.nl</article>
+            <article>060606060606</article>
         </Left>
         <Right>
          <Alt>All rights reserved@</Alt>

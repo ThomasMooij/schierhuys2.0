@@ -24,7 +24,7 @@ export const login = async (req,res,next) =>{
         })
         res.status(200).send({details:{...info}, isGert})
     }catch(err){
-        console.log(err)
+        next(createError(err))
     }
 }
 export const register = async (req,res,next) =>{
