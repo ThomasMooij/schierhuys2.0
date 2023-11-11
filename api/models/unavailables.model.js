@@ -6,6 +6,11 @@ const unavailablesSchema = Schema({
         ref: 'Users',
         required: true
         },
+    reserveId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Reservatie',
+        required: true
+        },
     dates: {
         type: [Date],
         required: true

@@ -15,12 +15,6 @@ const Wrapper = styled.div`
     width: 50%;
     margin: auto;
 `
-const Label = styled.label`
-`
-const Input = styled.input`
-`
-const Btn = styled.button`
-`
 const Register = () => {
 
     const [guest, setGuest] = useState({
@@ -75,17 +69,17 @@ const Register = () => {
   return (
    <Main>
     <Wrapper>
-        <Label htmlFor="">naam gast</Label>
+        <label htmlFor="">naam gast</label>
         {nameError ? <span>Wel de naam invullen Gertje</span> : null}
-        <Input 
+        <input 
             name="guestname"
             type="text"
             placeholder="ons gert"
             onChange={handleChange}
         />
        {emailError ? <span>Wel de email invullen Gertje</span> : null}
-        <Label> email</Label>
-        <Input 
+        <label> email</label>
+        <input 
             name="email"
             type="email"
             placeholder="gert@onsgert"
@@ -93,24 +87,24 @@ const Register = () => {
         />
         {passwordError ? <span>Wel het wachtwoord invullen Gertje</span> : null}
         {correctError ? <span>De wachtwoorden komen niet overeen Gertje</span> : null}
-        <Label>Wachtwoord</Label>
-        <Input 
+        <label>Wachtwoord</label>
+        <input 
             name="password"
             type="password"
             placeholder="geheim"
             onChange={handleChange}
         />
-          <Label>Wachtwoord bevestigen</Label>
+          <label>Wachtwoord bevestigen</label>
           {password1Error ? <span>Wel het wachtwoord bevestigen Gertje</span> : null}
           {correctError ? <span>De wachtwoorden komen niet overeen Gertje</span> : null}
-        <Input 
+        <input 
             name="password1"
             type="password"
             placeholder="geheim"
             onChange={handleChange}
         />
 
-        <Btn onClick={handleClick}> registreer</Btn>
+        <button onClick={handleClick}> registreer</button>
     </Wrapper>
    </Main>
   )

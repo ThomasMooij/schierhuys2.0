@@ -11,7 +11,7 @@ export const createReview = async (req,res,next)=>{
         const review = await Review.findOne({    
             userId: req.userId
         })
-        if(review) return next(createError(403, "U mag slechts een recentie achterlaten"))
+        if(review) return next(createError(403, "U mag slechts een recensie achterlaten"))
 
         const savedReview = await newReview.save()
     }catch(err){
@@ -26,7 +26,7 @@ export const getReviews = async (req,res,next)=>{
         ...(query.star && {star: query.star})
     }
     try{
-        const reviews = await Review.find(filter).sort({createdAt: -1}).select('-updatedAt')
+        const reviews = await Review.find(filter).sort({updatedAt: -1})
         res.status(200).send(reviews)
 
     }catch(err){

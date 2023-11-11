@@ -10,6 +10,6 @@ const Protected = () => {
   }
   const [admin, setAdmin] = useState(localStorage.getItem("deEchteGertGeheim"));
   return admin ? <Outlet /> : <Navigate to="/login" />;
-};
+}; 
 
 export default Protected;
