@@ -42,12 +42,6 @@ const Stars = styled.div`
 const Img = styled.img`
     width: 12px;
 `
-const Star = styled.span`
-    
-`
-const Desc = styled.p`
-    
-`
 const SingleReview = ({review}) => {
 
     const {data,loading, error} = useFetch(`http://localhost:8080/api/users/${review.userId}`)
@@ -60,16 +54,14 @@ const SingleReview = ({review}) => {
           <Info><Name><b>{data.guestname || "verwijderd account"}</b></Name><TimeStamp>{format(date, "dd/MM/yyyy")}</TimeStamp></Info>
       </User>
       <Stars>
-          {Array(review.star).fill().map((item, i) => (
-            
+          {Array(review.star).fill().map((item, i) => (            
             <Img src={star}></Img>
-            
           ))}
-          <Star>{review.star}</Star>
+          <span>{review.span}</span>
       </Stars>
     </UserInfo>
 
-    <Desc>{review.desc}</Desc>
+    <p>{review.desc}</p>
   </Review>
   )
 }

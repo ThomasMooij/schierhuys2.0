@@ -16,3 +16,5 @@ const unavailablesSchema = Schema({
         required: true
         }
 }, {timestamps: true})  
+
+export default mongoose.model("UnavailableDates", unavailablesSchema)

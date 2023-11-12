@@ -2,8 +2,6 @@ import styled from '@emotion/styled'
 import { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 
-
-
 const Main = styled.main`
     display: flex;
     flex-direction: column;
@@ -20,12 +18,8 @@ const Nav = styled.nav`
     margin: auto;
     background-color: beige;
     width: 100%;
-    min-height: 85px;
-   
+    min-height: 85px;  
 `
-
-
-
 const NavBtn = styled(Link)`
   border: none;
   text-decoration: none;

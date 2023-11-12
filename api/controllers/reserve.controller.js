@@ -1,6 +1,7 @@
 import Reserve from "../models/reservatie.model.js"
 import Stripe from "stripe"
 import createError from "../functions/createError.js"
+import unavailablesModel from "../models/unavailables.model.js"
 
 export const intent = async (req,res,next) => {
     try{
@@ -93,9 +94,9 @@ export const setUnavailables = async (req,res,next) =>{
 export const unSetUnavailables = async (req,res,next) =>{
     try{
     if(!req.isGert) return next(createError(403, "You are not Gertje"))
-        const reserve = await Reserve.findOneAndUpdate(
-            {'created_at' : 1},
-            {$pull: {"unavailableDates" : {$in: req.body.dates}}})
+        const reserve = new unavailableDates
+
+
         res.status(200).send(reserve)
     }catch(err){
         next(err)
@@ -107,7 +108,7 @@ export const confirm = async (req,res,next) => {
         const reserve = await Reserve.findOneAndUpdate(
             {payment_intent:req.body.payment_intent,} , 
             {$set:{ isCompleted:true,}})
-        const dates = await Reserve.findOneAndUpdate(
+        const  unavailableDates = await Reserve.findOneAndUpdate(
             {'created_at' : 1}, 
             {$push: {"unavailableDates": req.body.newDates}})
         res.status(200).send(reserve)
