@@ -1,5 +1,7 @@
-** add .env file in the api: PORT - MONGO - JWT - STRIPE_KEY
-** run npm i in both client and api file. 
-** create a mongodb data base and paste the connection string in the MONGO env variable
+** add .env file in the api and add variables: PORT - MONGO - JWT - STRIPE_KEY
+** run npm i in both client and api folder. 
+** create a mongodb data base and paste the connection string in the MONGO env variable (https://www.mongodb.com/basics/create-database)
+** choose port of your liking
+** configure jwt and stripe (optional)
 ** npm run dev - start client
 ** npm start - start server
