@@ -45,6 +45,13 @@ const Img = styled.img`
 const SingleReview = ({review}) => {
 
     const {data,loading, error} = useFetch(`http://localhost:8080/api/users/${review.userId}`)
+
+    if(loading) return <p>...loading, hang on!</p>
+
+    if(error){
+       throw new Error('Review did not load' + error)
+    }
+
     const date = new Date(review.createdAt)
 
   return (

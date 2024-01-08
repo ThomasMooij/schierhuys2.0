@@ -74,7 +74,6 @@ export const getReserve = async (req,res,next) => {
 export const getUnavailables = async (req,res,next) =>{ 
     try{
         const reserve = await Reserve.findOne().sort({'created_at' : 1}).select('unavailableDates -_id')
-
         res.status(200).send(reserve)
     }catch(err){
         next(err)
