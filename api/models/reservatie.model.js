@@ -28,9 +28,6 @@ const ReservatieSchema = new Schema({
     dates: {
         type:[Date],
     },
-    unavailableDates:{
-        type:[String],
-    },
     price:{
         type:Number,
         required: true,

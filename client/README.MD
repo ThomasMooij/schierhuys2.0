@@ -1,9 +1,6 @@
 Todo:
-navbar: smooth scroll, selected link with scroll
-Foto slider.
-Reserve functie
-Reviews&info (aparte pagina?), met outlet:
-gastenboek(Klanten inloggen, credentials via email?)
+Betaal scherm styling + email + automated account creation
+google reviews ipv 
 Huis regels.
 Omgegeving
 

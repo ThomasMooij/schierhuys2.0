@@ -1,7 +1,6 @@
 import Reserve from "../models/reservatie.model.js"
 import Stripe from "stripe"
 import createError from "../functions/createError.js"
-import unavailablesModel from "../models/unavailables.model.js"
 
 export const intent = async (req,res,next) => {
     try{
@@ -71,36 +70,6 @@ export const getReserve = async (req,res,next) => {
         next(err)
     }
 }
-export const getUnavailables = async (req,res,next) =>{ 
-    try{
-        const reserve = await Reserve.findOne().sort({'created_at' : 1}).select('unavailableDates -_id')
-        res.status(200).send(reserve)
-    }catch(err){
-        next(err)
-    }
-}
-export const setUnavailables = async (req,res,next) =>{
-    try{       
-        const reserve = await Reserve.findOneAndUpdate(
-            {'created_at' : 1},
-            {$push: {"unavailableDates" :req.body.dates}} )
-            console.log("controller dates:" , req.body.dates)
-        res.status(200).send(reserve)
-    }catch(err){
-        next(err)
-    }
-}
-export const unSetUnavailables = async (req,res,next) =>{
-    try{
-    if(!req.isGert) return next(createError(403, "You are not Gertje"))
-        const reserve = new unavailableDates
-
-
-        res.status(200).send(reserve)
-    }catch(err){
-        next(err)
-    }
-}
 export const confirm = async (req,res,next) => {
     try{
         //update unavailables
@@ -124,6 +93,47 @@ export const deleteReserve = async (req,res,next) => {
         })
         res.status(200).send(reserve)
 
+    }catch(err){
+        next(err)
+    }
+}
+
+//UNAVAILABLE DATES
+
+let cachedDates = null;
+
+export const getUnavailables = async (req,res,next) =>{ 
+
+    if(cachedDates){
+        return res.json({unavailableDates: cachedDates})
+    }
+    try{
+        const reservations = await Reserve.find({}, { dates: 1 });
+        const unavailableDates = reservations.flatMap(reservation => reservation.dates);
+        cachedDates = unavailableDates;  
+        res.json({ unavailableDates });
+    }catch(err){
+        next(err)
+    }
+}
+export const setUnavailables = async (req,res,next) =>{
+    try{       
+        const reserve = await Reserve.findOneAndUpdate(
+            {'created_at' : 1},
+            {$push: {"unavailableDates" :req.body.dates}} )
+            console.log("controller dates:" , req.body.dates)
+        res.status(200).send(reserve)
+    }catch(err){
+        next(err)
+    }
+}
+export const unSetUnavailables = async (req,res,next) =>{
+    try{
+    if(!req.isGert) return next(createError(403, "You are not Gertje"))
+        const reserve = new unavailableDates
+
+
+        res.status(200).send(reserve)
     }catch(err){
         next(err)
     }

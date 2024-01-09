@@ -15,6 +15,30 @@ const userSchema = new Schema({
         type:String,
         required:true
     },
+    birthdate:{
+        type: String,
+        required:true,
+    },
+    country:{
+        type:String, 
+        required:true, 
+    },
+    city:{
+        type:String, 
+        required:true,
+    },
+    postalCode:{
+        type:String, 
+        required:true,
+    },
+    emailPermission:{
+        type:Boolean, 
+        required:true,
+    },
+    termsAgreed:{
+        type:Boolean, 
+        required:true,
+    },
     isGert:{
         type:Boolean,
         default:false

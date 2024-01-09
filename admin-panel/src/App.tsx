@@ -6,4 +6,6 @@ import {
   ShowGuesser,
 } from "react-admin";
 
+import { dataProvider } from './dataProvider';
+
 export const App = () => <Admin></Admin>;
