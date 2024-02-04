@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { DateRange } from "react-date-range";
-import "react-date-range/dist/styles.css"; // main css file
-import "react-date-range/dist/theme/default.css"; // theme css file
+import "react-date-range/dist/styles.css"; 
+import "react-date-range/dist/theme/default.css"; 
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../../functions/useFetch"
@@ -50,28 +50,7 @@ gap: 25px;
 `
 
 
-const Calender = styled.div`
-cursor: pointer;
-display: flex;
-flex-direction: column;
-background-color: #F9FBFF;
-align-items: center;
-justify-content: center;
-padding: 15px;
-box-shadow: 0px 1px 10px #999;
-border-radius: 35px;
-@media(max-width: 1280px ){
-     max-width: 280px;
-     margin-left: 15px;
-     border: none;
-     box-shadow: none;
-     background-color: whitesmoke;
-    }
-`
-const CalendarTitle = styled.h2`
-  color: #383333;
-  font-weight: 400;
-`
+
 const Right = styled.div`
 flex: 1;
 display: flex;
